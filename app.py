@@ -37,20 +37,6 @@ def save_data():
     with open('data.json', 'w') as file:
         json.dump({key: DATA_STORAGE[key].to_dict(orient='records') for key in DATA_STORAGE.keys()}, file)
 
-# Function to display the login page
-def login_page():
-    st.title('Login Page')
-    username = st.text_input('Username')
-    password = st.text_input('Password', type='password')
-
-    if st.button('Login'):
-        if username in USER_DATA and USER_DATA[username] == password:
-            st.session_state['logged_in'] = True
-            st.session_state['username'] = username
-            st.success('Login successful!')
-            st.legacy_caching.clear_cache()
-        else:
-            st.error('Invalid username or password')
 
 # Function to display the main content
 def main_content():
