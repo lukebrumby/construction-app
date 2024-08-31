@@ -48,7 +48,7 @@ def login_page():
             st.session_state['logged_in'] = True
             st.session_state['username'] = username
             st.success('Login successful!')
-            st.experimental_rerun()
+            st.legacy_caching.clear_cache()
         else:
             st.error('Invalid username or password')
 
