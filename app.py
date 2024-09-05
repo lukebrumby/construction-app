@@ -2,22 +2,23 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# Sample Data for the bar graph (Purchase/Conversion)
+# Sample Data for the bar graph (Signup/Purchase)
 data_bar = {
-    "Category": ["Electronics", "Clothing", "Home Goods", "Sports", "Books"],
-    "Purchases": [150, 240, 120, 200, 180],
-    "Conversions": [120, 220, 110, 170, 150],
+    "Category": ["Basic", "Plus", "Pro", "Enterprise"],
+    "Signup": [200, 300, 400, 250],
+    "Purchase": [150, 240, 350, 200],
 }
 df_bar = pd.DataFrame(data_bar)
 
-# Bar graph (Purchases vs Conversions)
-st.header("Purchase vs Conversion by Category")
+# Bar graph (Signup vs Purchase with blue and gray colors)
+st.header("Signup vs Purchase by Category")
 bar_fig = px.bar(
     df_bar, 
     x="Category", 
-    y=["Purchases", "Conversions"], 
+    y=["Signup", "Purchase"], 
     barmode="group",
-    title="Purchases and Conversions by Category"
+    title="Signup and Purchase by Category",
+    color_discrete_map={"Signup": "blue", "Purchase": "gray"}
 )
 st.plotly_chart(bar_fig)
 
@@ -29,7 +30,7 @@ data_line = {
 }
 df_line = pd.DataFrame(data_line)
 
-# Line graph (In-store vs Online Purchases)
+# Line graph (In-store vs Online Purchases with blue and gray colors)
 st.header("In-store vs Online Purchases Over Time")
 line_fig = px.line(
     df_line,
@@ -37,21 +38,6 @@ line_fig = px.line(
     y=["In-store Purchases", "Online Purchases"],
     title="In-store vs Online Purchases Over Time",
     labels={"value": "Number of Purchases"},
+    color_discrete_map={"In-store Purchases": "blue", "Online Purchases": "gray"}
 )
 st.plotly_chart(line_fig)
-
-# Optionally, add interactivity such as filters
-st.sidebar.header("Filters")
-selected_category = st.sidebar.multiselect(
-    "Select Category", options=df_bar["Category"].unique(), default=df_bar["Category"].unique()
-)
-
-if selected_category:
-    filtered_df_bar = df_bar[df_bar["Category"].isin(selected_category)]
-    filtered_bar_fig = px.bar(
-        filtered_df_bar, 
-        x="Category", 
-        y=["Purchases", "Conversions"], 
-        barmode="group"
-    )
-    st.plotly_chart(filtered_bar_fig)
