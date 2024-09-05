@@ -41,6 +41,6 @@ line_fig = px.line(
     y=["In-store Purchases", "Online Purchases"],
     title="In-store vs Online Purchases Over Time",
     labels={"value": "Number of Purchases"},
-    color_discrete_map={"In-store Purchases": "blue", "Online Purchases": "gray"}
+    color_discrete_map={"In-store Purchases": "skyblue", "Online Purchases": "lightgray"}
 )
 st.plotly_chart(line_fig)
