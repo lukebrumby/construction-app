@@ -18,7 +18,7 @@ bar_fig = px.bar(
     y=["Signup", "Purchase"], 
     barmode="group",
     title="Signup and Purchase by Category",
-    color_discrete_map={"Signup": "blue", "Purchase": "gray"}
+    color_discrete_map={"Signup": "skyblue", "Purchase": "gray"}
 )
 st.plotly_chart(bar_fig)
 
@@ -38,6 +38,6 @@ line_fig = px.line(
     y=["In-store Purchases", "Online Purchases"],
     title="In-store vs Online Purchases Over Time",
     labels={"value": "Number of Purchases"},
-    color_discrete_map={"In-store Purchases": "blue", "Online Purchases": "gray"}
+    color_discrete_map={"In-store Purchases": "skyblue", "Online Purchases": "gray"}
 )
 st.plotly_chart(line_fig)
