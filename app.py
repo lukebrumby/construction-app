@@ -30,14 +30,17 @@ data_line = {
 }
 df_line = pd.DataFrame(data_line)
 
+# Format the 'Date' column to only show the month
+df_line['Month'] = df_line['Date'].dt.strftime('%B')  # Use '%b' for short month names
+
 # Line graph (In-store vs Online Purchases with blue and gray colors)
 st.header("In-store vs Online Purchases Over Time")
 line_fig = px.line(
     df_line,
-    x="Date",
+    x="Month",  # Use the formatted Month column
     y=["In-store Purchases", "Online Purchases"],
     title="In-store vs Online Purchases Over Time",
     labels={"value": "Number of Purchases"},
-    color_discrete_map={"In-store Purchases": "skyblue", "Online Purchases": "lightgray"}
+    color_discrete_map={"In-store Purchases": "blue", "Online Purchases": "gray"}
 )
 st.plotly_chart(line_fig)
