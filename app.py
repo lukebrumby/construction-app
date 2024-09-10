@@ -15,7 +15,7 @@ st.header("Signup vs Purchase by Category")
 bar_fig = px.bar(
     df_bar, 
     x="Customer engagement", 
-    y=["Interaction", "Purchase"], 
+    y="Value": ["Interaction", "Purchase"], 
     barmode="group",
     title="Interaction and Purchase by Category",
     color_discrete_map={"Interaction": "skyblue", "Purchase": "lightgray"}
