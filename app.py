@@ -4,7 +4,7 @@ import plotly.express as px
 
 # Sample Data for the bar graph (Signup/Purchase)
 data_bar = {
-    "Customer engagement": ["First", "Second", "Third", "Fourth"],
+    "Customer engagement": ["Ecommerce", "Marketing", "Construction", "Real Estate"],
     "Interaction": [200, 300, 400, 250],
     "Purchase": [150, 240, 350, 200],
 }
@@ -15,11 +15,17 @@ st.header("Signup vs Purchase by Category")
 bar_fig = px.bar(
     df_bar, 
     x="Customer engagement", 
-    y="Value": ["Interaction", "Purchase"], 
+    y=["Interaction", "Purchase"],  # Plot multiple columns on y-axis
     barmode="group",
     title="Interaction and Purchase by Category",
+    labels={
+        "value": "Value",  # Label for y-axis
+        "variable": "Variables",  # Label for the legend
+    },
     color_discrete_map={"Interaction": "skyblue", "Purchase": "lightgray"}
 )
+
+# Plot the graph in Streamlit
 st.plotly_chart(bar_fig)
 
 # Sample Data for the line graph (In-store vs Online purchases over time)
