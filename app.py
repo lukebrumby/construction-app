@@ -4,8 +4,8 @@ import plotly.express as px
 
 # Sample Data for the bar graph (Signup/Purchase)
 data_bar = {
-    "Category": ["Basic", "Plus", "Pro", "Enterprise"],
-    "Signup": [200, 300, 400, 250],
+    "Customer engagement": ["First", "Second", "Third", "Fourth"],
+    "Interaction": [200, 300, 400, 250],
     "Purchase": [150, 240, 350, 200],
 }
 df_bar = pd.DataFrame(data_bar)
