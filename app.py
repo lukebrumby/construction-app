@@ -4,7 +4,7 @@ import plotly.express as px
 
 # Sample Data for the bar graph (Signup/Purchase)
 data_bar = {
-    "Customer engagement": ["Ecommerce", "Marketing", "Construction", "Real Estate"],
+    "Customer engagement": ["First", "Second", "Third", "Fourth"],
     "Interaction": [200, 300, 400, 250],
     "Purchase": [150, 240, 350, 200],
 }
