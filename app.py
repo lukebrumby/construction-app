@@ -14,11 +14,11 @@ df_bar = pd.DataFrame(data_bar)
 st.header("Signup vs Purchase by Category")
 bar_fig = px.bar(
     df_bar, 
-    x="Category", 
-    y=["Signup", "Purchase"], 
+    x="Customer engagement", 
+    y=["Interaction", "Purchase"], 
     barmode="group",
-    title="Signup and Purchase by Category",
-    color_discrete_map={"Signup": "skyblue", "Purchase": "lightgray"}
+    title="Interaction and Purchase by Category",
+    color_discrete_map={"Interaction": "skyblue", "Purchase": "lightgray"}
 )
 st.plotly_chart(bar_fig)
 
